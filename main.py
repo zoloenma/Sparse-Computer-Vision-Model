@@ -12,7 +12,6 @@ def main():
     scheduler = MinuteScheduler()
     scheduler.schedule(task, 5)
     
-
 def task():
     image = grabber.GetImage()
     peopleCount = counter.CountPeople(image)
