@@ -1,11 +1,11 @@
 from Handlers.CameraImageGrabber import CameraImageGrabber
 from Handlers.MongoDataRepository import MongoDataRepository
-from Handlers.YoloPeopleCountingStrategy import YoloPeopleCountingStrategy
+from Handlers.RcnnPeopleCountingStrategy import RcnnPeopleCountingStrategy
 from Infrastructure.MinuteScheduler import MinuteScheduler
 
 repository = MongoDataRepository()
 grabber = CameraImageGrabber()
-counter = YoloPeopleCountingStrategy()
+counter = RcnnPeopleCountingStrategy()
 
 
 def main():
@@ -16,3 +16,5 @@ def task():
     image = grabber.GetImage()
     peopleCount = counter.CountPeople(image)
     repository.SavePeopleCount(peopleCount)
+
+main()

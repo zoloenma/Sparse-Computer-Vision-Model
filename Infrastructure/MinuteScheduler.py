@@ -4,6 +4,7 @@ from threading import Thread
 
 
 def schedule_task(task, minutes):
+    print("task scheduled")
     while True:
         task()
         time.sleep(minutes*60)
@@ -12,6 +13,6 @@ def schedule_task(task, minutes):
 class MinuteScheduler:
 
     def schedule(self, task, minutes):
-        thread = Thread(target=self.schedule_task, args=(task, minutes))
+        thread = Thread(target=schedule_task, args=(task, minutes))
         thread.start()
         thread.join()
