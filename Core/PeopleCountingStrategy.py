@@ -1,10 +1,6 @@
 from abc import abstractmethod
-
-from Core.DataRepository import DataRepository
-
+from Core import Image
 
 class PeopleCountingStrategy:
-
-    
     @abstractmethod
-    def CountPeople(self, image) -> int: pass
+    def CountPeople(self, image: Image) -> int: pass
