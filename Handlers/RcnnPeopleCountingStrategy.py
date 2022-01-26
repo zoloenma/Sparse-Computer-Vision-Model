@@ -41,7 +41,6 @@ class RcnnPeopleCountingStrategy(PeopleCountingStrategy):
         # Show image
         cv2.imshow('Image', img)
         print('People count:', people_count)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+        cv2.waitKey(1)
 
         return people_count

@@ -10,10 +10,12 @@ def main():
     counter = RcnnPeopleCountingStrategy()
 
     while True:
+        print("counting people")
         image = grabber.GetImage()
         peopleCount = counter.CountPeople(image)
         repository.SavePeopleCount(peopleCount)
-        time.sleep(5*60)
+        print(peopleCount)
+        time.sleep(5)
 
     
 main()
