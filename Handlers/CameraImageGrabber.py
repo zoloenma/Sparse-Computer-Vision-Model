@@ -10,7 +10,7 @@ class CameraImageGrabber(ImageGrabber):
 
 
     def GetImage(self) -> Image:
-        ret, frame = self.cam.read()
+        _, frame = self.cam.read()
         return frame
 
     def __del__(self):
