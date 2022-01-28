@@ -1,1 +1,1 @@
-import Tests.PeopleCountingTest
+import Tests.PersonDetectionTest
