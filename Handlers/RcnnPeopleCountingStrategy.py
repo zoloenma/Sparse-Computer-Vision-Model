@@ -4,17 +4,16 @@ import numpy as np
 
 class RcnnPeopleCountingStrategy(PeopleCountingStrategy):
 
-    def __init__(self):
+    def __init__(self, debug_mode = False):
         self.net = cv2.dnn.readNetFromTensorflow("Models/frozen_inference_graph_coco.pb",
                                             "Models/mask_rcnn_inception_v2_coco_2018_01_28.pbtxt")
+        self.debug_mode = debug_mode
 
     def CountPeople(self, image) -> int:
         # Input image/video/camera source
         img = image
         height, width, _ = img.shape
         people_count = 0
-
-        # DETECT OBJECTS
 
         # Swap BGR to RGB, put the image(blob) into the network
         blob = cv2.dnn.blobFromImage(img, swapRB=True)
@@ -39,8 +38,9 @@ class RcnnPeopleCountingStrategy(PeopleCountingStrategy):
                 cv2.rectangle(img, (x, y), (x2, y2), (255, 0, 0), 2)
 
         # Show image
-        cv2.imshow('Image', img)
-        print('People count:', people_count)
-        cv2.waitKey(1)
+        if self.debug_mode:
+            cv2.imshow('Image', img)
+            print('People count:', people_count)
+            cv2.waitKey(1)
 
         return people_count
