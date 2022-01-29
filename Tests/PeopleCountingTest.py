@@ -7,7 +7,7 @@ from Handlers.RcnnPeopleCountingStrategy import RcnnPeopleCountingStrategy
 class PeopleCountingTest(unittest.TestCase):
     def __init__(self, methodName: str = ...) -> None:
         super().__init__(methodName)
-        self.model = RcnnPeopleCountingStrategy(True)
+        self.model = RcnnPeopleCountingStrategy()
 
     def test_is_counting_people_zero(self):
         file_name = "Tests/Samples/people_zero.jpg"

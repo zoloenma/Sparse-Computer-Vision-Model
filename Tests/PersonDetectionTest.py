@@ -7,7 +7,7 @@ from Handlers.RcnnPeopleCountingStrategy import RcnnPeopleCountingStrategy
 class PersonDetectionTest(TestCase):
     def __init__(self, methodName: str = ...) -> None:
         super().__init__(methodName)
-        self.model = RcnnPeopleCountingStrategy(debug_mode=True)
+        self.model = RcnnPeopleCountingStrategy()
 
     def test_is_detecting_person_near(self):
         file_name = "Tests/Samples/person_near.jpg"
