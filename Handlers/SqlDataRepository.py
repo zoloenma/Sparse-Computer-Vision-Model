@@ -34,14 +34,21 @@ class SqlDataRepository(DataRepository):
         ''')
 
 
-    def SavePeopleCount(self, peopleCount: int):
+    def SavePeopleCount(self, roomOccupancy: float):
         with pyo.connect(self.connection_string) as connection:
             cursor = connection.cursor()
             
+            get_room_capacity_query = "SELECT [Capacity] From [EffectiveCapacity]"
+            cursor.execute(get_room_capacity_query)
+            effective_capacity = cursor.fetchone().Capacity
+
+            room_occupancy_percentage = roomOccupancy / effective_capacity
+
             insert_query = 'INSERT INTO [RoomOccupancy] ([Room Occupancy], [Timestamp]) VALUES (?, ?)'
             records = [
-                (peopleCount, datetime.datetime.now()),
+                (room_occupancy_percentage, datetime.datetime.now()),
             ]
             
             cursor.executemany(insert_query, records)
             cursor.commit()
+    

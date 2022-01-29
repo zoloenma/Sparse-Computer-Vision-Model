@@ -1,15 +1,15 @@
 import time
-from Core import Model
+from Core.Model import Model
 from Handlers.CameraImageGrabber import CameraImageGrabber
-from Handlers.SqlDataRepository import MongoDataRepository
+from Handlers.SqlDataRepository import SqlDataRepository
 from Handlers.RcnnPeopleCountingStrategy import RcnnPeopleCountingStrategy
 
 
 def main():
     model = Model(
-        grabber=CameraImageGrabber(0),
-        counter=RcnnPeopleCountingStrategy(),
-        repository=MongoDataRepository()
+        grabber =CameraImageGrabber(0),
+        counter=RcnnPeopleCountingStrategy(debug_mode=True),
+        repository=SqlDataRepository()
     )
 
     while True:

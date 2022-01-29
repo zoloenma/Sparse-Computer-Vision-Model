@@ -1,5 +1,5 @@
 class Model:
-    def __int__(self, grabber, counter, repository):
+    def __init__(self, grabber, counter, repository):
         self.grabber = grabber 
         self.counter = counter 
         self.repository = repository 

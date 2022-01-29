@@ -11,7 +11,7 @@ class RcnnPeopleCountingStrategy(PeopleCountingStrategy):
 
         self.debug_mode = debug_mode
 
-    def CountPeople(self, image) -> int:
+    def CountPeople(self, image) -> float:
         # Input image/video/camera source
         img = image
         height, width, _ = img.shape
