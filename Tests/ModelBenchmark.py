@@ -20,7 +20,6 @@ for line in file_lines:
 
 dataset = dataset[:10]
 
-
 model = RcnnPeopleCountingStrategy()
 grabber = FileImageGrabber("")
 
@@ -89,8 +88,8 @@ print(f"""
 --- Benchmark Statistics ---
 
 Mean Execution Time:    {mean_execution_time}
-Max Execution Time:     {min_execution_time} - {min_execution_time_file}
-Min Execution Time:     {max_execution_time} - {max_execution_time_file}
+Max Execution Time:     {max_execution_time} - {max_execution_time_file}
+Min Execution Time:     {min_execution_time} - {min_execution_time_file}
 
 Mean Error:         {mean_error}
 Mean Squared Error: {mean_squared_error}

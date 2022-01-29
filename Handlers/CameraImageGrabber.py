@@ -8,7 +8,6 @@ class CameraImageGrabber(ImageGrabber):
         self.device_id = device_id
         self.cam = cv2.VideoCapture(self.device_id)
 
-
     def GetImage(self) -> Image:
         _, frame = self.cam.read()
         return frame

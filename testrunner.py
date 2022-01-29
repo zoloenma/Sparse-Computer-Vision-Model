@@ -1,1 +1,1 @@
-import Tests.sample
+import Tests.ModelBenchmark

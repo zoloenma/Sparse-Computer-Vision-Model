@@ -5,8 +5,10 @@ import numpy as np
 class RcnnPeopleCountingStrategy(PeopleCountingStrategy):
 
     def __init__(self, debug_mode = False):
+        print("Count of Cuda Devices",cv2.cuda.getCudaEnabledDeviceCount())
         self.net = cv2.dnn.readNetFromTensorflow("Models/frozen_inference_graph_coco.pb",
                                             "Models/mask_rcnn_inception_v2_coco_2018_01_28.pbtxt")
+
         self.debug_mode = debug_mode
 
     def CountPeople(self, image) -> int:
