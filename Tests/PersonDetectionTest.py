@@ -115,3 +115,12 @@ class PersonDetectionTest(TestCase):
         calculated_count = self.model.CountPeople(image)
 
         self.assertEqual(calculated_count, actual_count)
+
+    def is_detecting_person_blurred(self):
+        file_name = "test/samples/person_blurred"
+        image = FileImageGrabber(file_name).GetImage()
+        actual_count = 1
+
+        calculated_count = self.model.CountPeople(image)
+
+        self.assertEqual(calculated_count, actual_count)
