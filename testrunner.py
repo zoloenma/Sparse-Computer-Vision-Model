@@ -1,1 +1,1 @@
-import Tests.PersonDetectionTest
+import Tests.sample

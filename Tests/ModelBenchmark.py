@@ -1,12 +1,25 @@
 
 import math
 import time
+import os
 
-from Handlers import FileImageGrabber
+from Handlers.FileImageGrabber import FileImageGrabber 
 from Handlers.RcnnPeopleCountingStrategy import RcnnPeopleCountingStrategy
+
+with open("Tests\Samples\ScutDataset\ScutDatasetLabels.csv") as f:
+    file_lines = f.readlines()
 
 
 dataset = []
+folder_path = "Tests\Samples\ScutDataset\Images"
+for line in file_lines:
+    file_name, actual_count = line.strip().split(",")
+    actual_count = int(actual_count)
+    file_name = os.path.join(folder_path, file_name)
+    dataset.append((file_name, actual_count))
+
+dataset = dataset[:10]
+
 
 model = RcnnPeopleCountingStrategy()
 grabber = FileImageGrabber("")
@@ -15,17 +28,20 @@ errors = []
 execution_times = []
 
 for file_name, actual_count in dataset:
-    image = grabber.image_path = file_name
+    grabber.image_path = file_name
 
+    image = grabber.GetImage()
     start = time.time()
     calculated_count = model.CountPeople(image)
     end = time.time()
 
-    error = calculated_count - actual_count
+    error = abs(calculated_count - actual_count)
     execution_time = end - start
 
     errors.append(error)
     execution_times.append(execution_time)
+
+    print(file_name, error, execution_time)
 
 
 
