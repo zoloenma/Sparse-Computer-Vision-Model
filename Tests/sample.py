@@ -8,10 +8,10 @@ import cv2
 from Handlers.RcnnPeopleCountingStrategy import RcnnPeopleCountingStrategy
 
 
-counter = RcnnPeopleCountingStrategy()
+counter = RcnnPeopleCountingStrategy(True)
 
 
-image = cv2.imread('Tests\Samples\people_in_library2.jpg')
+image = cv2.imread("Tests/Samples/person_near.jpg")
 count = counter.CountPeople(image)
 
 print(count)

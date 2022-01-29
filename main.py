@@ -17,5 +17,5 @@ def main():
         minute_interval = 1
         time.sleep(minute_interval * 60)
 
-
-main()
+if __name__ == "__main__":
+    main()

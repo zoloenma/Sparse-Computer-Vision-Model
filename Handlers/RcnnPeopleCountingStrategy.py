@@ -43,6 +43,6 @@ class RcnnPeopleCountingStrategy(PeopleCountingStrategy):
         if self.debug_mode:
             cv2.imshow('Image', img)
             print('People count:', people_count)
-            cv2.waitKey(1)
+            cv2.waitKey(0)
 
         return people_count
