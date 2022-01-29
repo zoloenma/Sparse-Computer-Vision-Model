@@ -54,7 +54,7 @@ class PersonDetectionTest(TestCase):
         self.assertEqual(calculated_count, actual_count)
 
     def is_detecting_person_side(self):
-        file_name = "test/samples/person_back"
+        file_name = "test/samples/person_side"
         image = FileImageGrabber(file_name).GetImage()
         actual_count = 1
 
