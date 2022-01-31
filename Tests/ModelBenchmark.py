@@ -6,7 +6,7 @@ import os
 from Handlers.FileImageGrabber import FileImageGrabber 
 from Handlers.RcnnPeopleCountingStrategy import RcnnPeopleCountingStrategy
 
-if __name__ == "__main__":
+def benchmark():
     with open("Tests\Samples\ScutDataset\ScutDatasetLabels.csv") as f:
         file_lines = f.readlines()
 
@@ -19,7 +19,7 @@ if __name__ == "__main__":
         file_name = os.path.join(folder_path, file_name)
         dataset.append((file_name, actual_count))
 
-    dataset = dataset[:10]
+    dataset = dataset[:100]
 
     model = RcnnPeopleCountingStrategy()
     grabber = FileImageGrabber("")
